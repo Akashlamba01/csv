@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(106, 181, 89);
+  /* color: rgb(26, 164, 26); */
+}
+
+/* container for whole page */
+.container {
+  width: 90%;
+  margin: auto;
+  height: 100vh;
+  /* border: 2px solid green; */
+}
+
+.inner-container {
+  padding-top: 20px;
+}
+
+/* add form ////////////////////////// */
+/* add form box////////////////// */
+.input-details {
+  /* border: 2px solid blue; */
+  /* width: 500px; */
+  margin: auto;
+  padding-bottom: 20px;
+  padding-top: 10px;
+  background-color: rgba(0, 0, 0, 0.422);
+  box-shadow: 0 0 3px 1px rgb(72, 72, 72);
+}
+
+/* form headig ///////////////////////////*/
+.input-details h3 {
+  text-align: center;
+  /* margin: 5px 0; */
+  margin-bottom: 5px;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* form /////////////////////////////////// */
+.input-details form {
+  /* border: 2px solid yellow; */
+  width: 90%;
+  margin: auto;
+}
+
+/* input field and labels/////////////////////// */
+.input-details form label {
+  width: 37%;
+  margin: 5px 0;
+  display: -webkit-inline-box;
+}
+
+.input-details input {
+  width: 60%;
+  height: 1.4rem;
+  margin: 5px 0;
+  color: white;
+  /* padding-left: 5px; */
+  font-weight: bold;
+  background-color: transparent;
+}
+
+.input-details input::placeholder {
+  padding-left: 5px;
+  color: rgb(179, 177, 177);
+}
+
+/* submit btn/////////////////////////////// */
+.btn {
+  width: 70px;
+  height: 1.4rem;
+  border-radius: 5px;
+  background-color: rgb(71, 71, 71);
+  color: white;
+  margin-top: 5px;
+}
+
+/* search bar box/////////////////////////////////// */
+.search-bar {
+  /* border: 2px solid blue; */
+  margin-bottom: 20px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* search input/////////////////////////////////////// */
+.search-bar input {
+  border-radius: 3px;
+  /* width: 60%; */
+  height: 1.7rem;
+  /* margin: 3px 0; */
+  color: white;
+  padding-left: 5px;
+  font-weight: bold;
+  background-color: rgba(62, 60, 60, 0.726);
+}
+
+.search-bar input::placeholder {
+  /* padding-left: 5px; */
+  color: rgb(188, 185, 185);
+}
+
+/* data list box/////////////////////////////////// */
+.list-box {
+  margin-bottom: 10px;
+  border: 2px solid black;
+  text-align: center;
+  height: 50vh;
+}
+
+.list-box h1 {
+  font-size: 1.5rem;
+  height: 11%;
+  /* text-decoration: underline; */
+  background-color: rgba(0, 0, 0, 0.422);
+  border-bottom: 2px solid black;
+  /* height: 30px; */
+  /* border: 2px solid white; */
+}
+
+#list-details {
+  overflow-y: auto;
+  height: 89%;
+  /* display: block; */
+  /* border: 2px solid saddlebrown; */
+}
+
+#list-details::-webkit-scrollbar {
+  display: none;
+}
+
+#list-details ol {
+  list-style-position: inside;
+  margin: 16px 0;
+}
+
+#list-details li {
+  width: 200px;
+  margin: 6px auto;
+  font-size: 1.1rem;
+  padding: 5px 0;
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.422);
+  box-shadow: 0 0 2px 1px black;
+}
+
+#list-details li a {
+  text-decoration: none;
+  color: black;
+}

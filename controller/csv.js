@@ -55,11 +55,13 @@ module.exports.getCsv = async (req, res) => {
     let newData = data.slice(startIndex, endIndex);
     console.log(newData);
 
-    return res.status(200).json({
-      message: "success",
-      success: true,
-      data: newData,
-    });
+    // return res.status(200).json({
+    //   message: "success",
+    //   success: true,
+    //   data: newData,
+    // });
+
+    return res.status(200).render("index", {});
   } catch (error) {
     console.log(error);
     return res.status(400).send({ success: false });
