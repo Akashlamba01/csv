@@ -6,6 +6,10 @@ const csvControler = require("../controller/csv");
 const multer = require("multer");
 const path = require("path");
 
+let ex = function () {
+  console.log(path.join(__dirname, "../uploads"));
+};
+
 let storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, path.join(__dirname, "../uploads"));

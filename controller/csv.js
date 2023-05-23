@@ -5,7 +5,7 @@ const { model } = require("mongoose");
 module.exports.importCsv = async (req, res) => {
   try {
     let newCSV;
-    console.log(req.file);
+    // console.log("jkjkjjkjkjk", req.file);
     csv()
       .fromFile(req.file.path)
       .then(async (data) => {
@@ -20,7 +20,9 @@ module.exports.importCsv = async (req, res) => {
         let keyname = newCSV.csvfiles[0];
         console.log(Object.keys(keyname));
 
-        return res.status(200).json({ success: true, data: newCSV });
+        console.log("abhi ka data", newCSV);
+
+        return res.status(200).render("index", { success: true, data: newCSV });
       });
   } catch (error) {
     console.log(error);

@@ -18,6 +18,7 @@ body {
 
 .inner-container {
   padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 /* add form ////////////////////////// */
@@ -32,7 +33,7 @@ body {
   box-shadow: 0 0 3px 1px rgb(72, 72, 72);
 }
 
-/* form headig ///////////////////////////*/
+/* form heading ///////////////////////////*/
 .input-details h3 {
   text-align: center;
   /* margin: 5px 0; */
@@ -107,20 +108,19 @@ body {
 
 /* data list box/////////////////////////////////// */
 .list-box {
+  margin: auto;
   margin-bottom: 10px;
   border: 2px solid black;
   text-align: center;
-  height: 50vh;
+  height: 320px;
 }
 
 .list-box h1 {
   font-size: 1.5rem;
-  height: 11%;
-  /* text-decoration: underline; */
+  height: 7%;
+  padding: 5px 0;
   background-color: rgba(0, 0, 0, 0.422);
   border-bottom: 2px solid black;
-  /* height: 30px; */
-  /* border: 2px solid white; */
 }
 
 #list-details {
@@ -152,4 +152,101 @@ body {
 #list-details li a {
   text-decoration: none;
   color: black;
+}
+
+/* media for 479px///////////////// */
+@media screen and (min-width: 479px) {
+  /* add form ////////////////////////// */
+  /* add form box////////////////// */
+  .container {
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  /* add form ////////////////////////// */
+  /* add form box////////////////// */
+  .container {
+    width: 60%;
+    /* border: 2px solid yellow; */
+  }
+
+  .inner-container {
+    padding-top: 40px;
+    padding-bottom: 20px;
+  }
+
+  /* add form ////////////////////////// */
+  /* add form box////////////////// */
+  .input-details {
+    /* width: 80%; */
+    padding-bottom: 30px;
+    padding-top: 15px;
+  }
+
+  /* form heading /////////////////*/
+  .input-details h3 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+  }
+
+  /* form /////////////////////////////////// */
+  .input-details form {
+    /* border: 2px solid yellow; */
+    width: 80%;
+  }
+
+  /* input field and labels/////////////////////// */
+  .input-details form label {
+    margin: 8px 0;
+    font-size: 1.1rem;
+  }
+
+  .input-details input {
+    margin: 8px 0;
+  }
+
+  /* search bar box/////////////////////////////////// */
+  .search-bar {
+    /* border: 2px solid blue; */
+    margin-bottom: 30px;
+    margin-top: 30px;
+    /* text-align: center; */
+  }
+
+  /* data list box/////////////////////////////////// */
+  .list-box {
+    height: 350px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .input-details {
+    width: 80%;
+  }
+
+  .input-details form {
+    /* border: 2px solid yellow; */
+    width: 70%;
+    margin: auto;
+  }
+}
+
+@media screen and (min-width: 1201px) {
+  .input-details {
+    /* border: 2px solid blue; */
+    width: 70%;
+  }
+
+  .input-details form {
+    /* border: 2px solid yellow; */
+    width: 70%;
+    margin: auto;
+  }
+
+  /* data list box/////////////////////////////////// */
+  .list-box {
+    height: 400px;
+    width: 80%;
+  }
 }

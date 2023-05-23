@@ -12,7 +12,7 @@
       <div class="inner-container">
         <div class="input-details">
           <h3>Add Your Docs.</h3>
-          <form action="">
+          <form action="/addCsv" method="post">
             <label for="name">Docs Name: </label>
             <input
               type="text"
@@ -21,14 +21,8 @@
               required
             />
             <br />
-            <label for="name">Docs File: </label>
-            <input
-              type="file"
-              name="file"
-              accept=".csv"
-              placeholder="only csv file"
-              required
-            />
+            <label for="file">Docs File: </label>
+            <input type="file" name="file" accept=".csv" required />
             <br />
             <button type="submit" class="btn">submit</button>
           </form>
