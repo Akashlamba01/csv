@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const mongoosePaginate = require("mongoose-paginate");
+// const mongoosePaginate = require("mongoose-paginate");
 
 const csvSchema = new mongoose.Schema(
   {
@@ -11,7 +11,7 @@ const csvSchema = new mongoose.Schema(
   { strict: false }
 );
 
-csvSchema.plugin(mongoosePaginate);
+// csvSchema.plugin(mongoosePaginate);
 
 const CSV = mongoose.model("Csvfile", csvSchema);
 module.exports = CSV;

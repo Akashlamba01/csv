@@ -1,15 +1,20 @@
 const csv = require("csvtojson");
-const csvModel = require("../models/csv-user");
-const { model } = require("mongoose");
+const CSVModel = require("../models/csv-user");
+
+const fs = require("fs");
+const { promisify } = require("util");
+
+const unlinkAsync = promisify(fs.unlink);
 
 module.exports.importCsv = async (req, res) => {
   try {
     let newCSV;
-    // console.log("jkjkjjkjkjk", req.file);
+    // console.log("jkjkjjkjkjk kuch to hooooooooooo");
+    // console.log("fileeeeeeeeee:", req.file.filename);
     csv()
       .fromFile(req.file.path)
       .then(async (data) => {
-        newCSV = await csvModel.create({
+        newCSV = await CSVModel.create({
           name: req.body.name,
         });
 
@@ -20,9 +25,11 @@ module.exports.importCsv = async (req, res) => {
         let keyname = newCSV.csvfiles[0];
         console.log(Object.keys(keyname));
 
-        console.log("abhi ka data", newCSV);
+        // console.log("abhi ka data", newCSV);
 
-        return res.status(200).render("index", { success: true, data: newCSV });
+        await unlinkAsync(req.file.path);
+
+        return res.status(200).redirect("back");
       });
   } catch (error) {
     console.log(error);
@@ -30,20 +37,18 @@ module.exports.importCsv = async (req, res) => {
   }
 };
 
+// module.exports.getCsv = (req, res) => {
+//   return res.status(200).render("index", {
+//     title: "csv file",
+//   });
+// };
+
 module.exports.getCsv = async (req, res) => {
   try {
     const pageNumber = req.query.page || 1; // Get the current page number from the query parameters
-    const pageSize = 2; // Number of items per page
+    const pageSize = 10; // Number of items per page
 
-    // csvModel
-    //   .paginate({}, { offset: pageNumber - 1, limit: pageSize })
-    //   .then((result) => {
-    //     console.log(result.docs);
-    //     // result.findOne({name: 'extra'});
-    //     return res.json({ data: result });
-    //   });
-
-    let data = await csvModel.find({});
+    let data = await CSVModel.find({});
 
     if (!data) {
       return res.status(400).json({
@@ -55,15 +60,12 @@ module.exports.getCsv = async (req, res) => {
     const endIndex = startIndex + pageSize;
 
     let newData = data.slice(startIndex, endIndex);
-    console.log(newData);
+    // console.log(newData);
 
-    // return res.status(200).json({
-    //   message: "success",
-    //   success: true,
-    //   data: newData,
-    // });
-
-    return res.status(200).render("index", {});
+    return res.status(200).render("index", {
+      title: "csv file",
+      csv_files: newData,
+    });
   } catch (error) {
     console.log(error);
     return res.status(400).send({ success: false });
@@ -72,7 +74,7 @@ module.exports.getCsv = async (req, res) => {
 
 module.exports.getBySearch = async (req, res) => {
   try {
-    let data = await csvModel.find({ name: req.query.name });
+    let data = await CSVModel.find({ name: req.query.name });
 
     if (!data) {
       return res.status(400).json({
@@ -94,10 +96,10 @@ module.exports.getBySearch = async (req, res) => {
 module.exports.getAllDetails = async (req, res) => {
   try {
     let pageNumber = req.query.page || 1; // Get the current page number from the query parameters
-    let pageSize = 2; // Number of items per page
+    let pageSize = 100; // Number of items per page
 
-    let data = await csvModel.findById(req.params.id);
-    console.log(req.body.id);
+    let data = await CSVModel.findById(req.params.id);
+    // console.log(req.body.id);
 
     // console.log("data: ", data.csvfiles);
     // let keyname = data.csvfiles[0];
@@ -109,7 +111,7 @@ module.exports.getAllDetails = async (req, res) => {
     let endIndex = startIndex + pageSize;
 
     let newData = data.csvfiles.slice(startIndex, endIndex);
-    console.log(newData);
+    // console.log(newData);
 
     return res.status(200).json({
       message: "success",

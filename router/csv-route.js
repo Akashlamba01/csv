@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const csvControler = require("../controller/csv");
+const CSV = require("../models/csv-user");
+const csv = require("csvtojson");
 // const csv = require("../config/csv-uploader");
 
 const multer = require("multer");
@@ -33,10 +35,12 @@ const upload = multer({
   limits: {
     fileSize: 1024 * 1024,
   },
-}).single("file");
+});
 
-router.post("/addCsv", upload, csvControler.importCsv);
+router.post("/addCsv", upload.single("file"), csvControler.importCsv);
+
 router.get("/", csvControler.getCsv);
+router.get("/search", csvControler.getBySearch);
 router.get("/:id", csvControler.getAllDetails);
 
 module.exports = router;

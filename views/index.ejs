@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/index.css" />
-    <title>CSV Uploader</title>
+    <title><%= title %></title>
   </head>
   <body>
     <div class="container">
       <div class="inner-container">
         <div class="input-details">
           <h3>Add Your Docs.</h3>
-          <form action="/addCsv" method="post">
+          <form action="/addCsv" enctype="multipart/form-data" method="post">
             <label for="name">Docs Name: </label>
             <input
               type="text"
@@ -29,8 +29,14 @@
         </div>
 
         <div class="search-bar">
-          <form action="">
-            <input type="search" placeholder="Enter your file name" required />
+          <form action="/search" method="get">
+            <input
+              type="search"
+              id="searchbar"
+              onkeyup=""
+              placeholder="Enter your file name"
+              required
+            />
             <button type="submit" class="btn">search</button>
           </form>
         </div>
@@ -40,22 +46,17 @@
           <!-- <hr /> -->
           <div id="list-details">
             <ol>
-              <li><a href="">list</a></li>
-              <li>jkl</li>
-              <li>jkl</li>
-              <li>jkl</li>
-              <li>jkl</li>
-              <li>jkl</li>
-              <li>jkl</li>
-              <li>jkl</li>
-              <li>jkl</li>
-              <li>jkl</li>
-              <li>jkl</li>
-              <li>jkl</li>
+              <% for(data of csv_files) {%>
+              <li>
+                <a href="<%=data.id%>" class="data"><%= data.name %></a>
+              </li>
+              <% } %>
             </ol>
           </div>
         </div>
       </div>
     </div>
+
+    <script src="./js/index.js"></script>
   </body>
 </html>
