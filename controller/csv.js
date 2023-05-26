@@ -32,7 +32,7 @@ module.exports.importCsv = async (req, res) => {
         return res.status(200).redirect("back");
       });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     return res.status(400).send({ success: false });
   }
 };
@@ -99,13 +99,6 @@ module.exports.getAllDetails = async (req, res) => {
     let pageSize = 100; // Number of items per page
 
     let data = await CSVModel.findById(req.params.id);
-    // console.log(req.body.id);
-
-    // console.log("data: ", data.csvfiles);
-    // let keyname = data.csvfiles[0];
-    // keyname = Object.keys(keyname);
-    // console.log(keyname);
-    // console.log(keyname[0]);
 
     let startIndex = (pageNumber - 1) * pageSize;
     let endIndex = startIndex + pageSize;
@@ -113,13 +106,27 @@ module.exports.getAllDetails = async (req, res) => {
     let newData = data.csvfiles.slice(startIndex, endIndex);
     // console.log(newData);
 
-    return res.status(200).json({
+    if (newData.length == 0) {
+      console.log("in newdata");
+      return res.status(404).render("notFound");
+    }
+    let keyname = newData[0];
+    // console.log(Object.keys(keyname));
+
+    keyname = Object.keys(keyname);
+
+    return res.status(200).render("dataTable", {
       message: "success",
       success: true,
+      title: "data table",
+      id: data.id,
+      page: pageNumber,
+      keyname: keyname,
+      name: data.name,
       data: newData,
     });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     return res.status(400).send({ success: false });
   }
 };

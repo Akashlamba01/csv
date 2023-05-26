@@ -13,6 +13,7 @@ body {
   width: 90%;
   margin: auto;
   height: 100vh;
+  /* border: 2px solid red; */
   /* border: 2px solid green; */
 }
 
@@ -118,7 +119,8 @@ body {
 .list-box h1 {
   font-size: 1.5rem;
   height: 7%;
-  padding: 5px 0;
+  padding-top: 10px;
+  /* padding-bottom: 5px; */
   background-color: rgba(0, 0, 0, 0.422);
   border-bottom: 2px solid black;
 }

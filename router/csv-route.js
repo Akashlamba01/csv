@@ -40,7 +40,7 @@ const upload = multer({
 router.post("/addCsv", upload.single("file"), csvControler.importCsv);
 
 router.get("/", csvControler.getCsv);
-router.get("/search", csvControler.getBySearch);
+// router.get("/search", csvControler.getBySearch);
 router.get("/:id", csvControler.getAllDetails);
 
 module.exports = router;

@@ -1,0 +1,89 @@
+/* table, */
+
+.table-btn {
+  /* border: 2px solid blue; */
+  margin: auto;
+  margin-bottom: 30px;
+  /* margin-top: 30px; */
+  /* border: 2px solid red; */
+  /* width: 80%; */
+  /* margin: auto; */
+  display: flex;
+  justify-content: space-between;
+  /* text-align: center; */
+}
+
+.table-btn a {
+  color: white;
+  text-decoration: none;
+}
+
+.table-btn a:hover {
+  color: rgb(192, 191, 191);
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.table-btn button {
+  color: white;
+  /* background-color: transparent; */
+  background-color: rgba(0, 0, 0, 0.422);
+  border-radius: 6px;
+
+  width: 70px;
+}
+
+.table-form {
+  display: flex;
+}
+
+.table-form input {
+  width: 120px;
+  background-color: rgba(62, 60, 60, 0.726);
+  padding-left: 5px;
+  color: white;
+  border-radius: 6px;
+  /* background-color: transparent; */
+  /* background-color: red; */
+}
+
+.table-form input::placeholder {
+  /* padding-left: 5px; */
+  color: rgb(188, 185, 185);
+}
+
+.search-cnt {
+  border-left: 1px solid black;
+  /* padding: 2px; */
+  /* padding-left: 5px; */
+  /* margin: 2px; */
+  margin-left: -30px;
+}
+
+.search-cnt i {
+  color: white;
+  font-size: 12px;
+  /* padding: ; */
+  /* padding: 5px; */
+  padding: 8px;
+}
+
+.pages span a button {
+  border: 1px solid black;
+  padding: 2px 4px;
+  /* margin-top: 10px; */
+  /* background-color: rgba(0, 0, 0, 0.422); */
+}
+
+table {
+  border: 2px solid black;
+  /* background-color: rgba(0, 0, 0, 0.422); */
+  margin: 1rem;
+  /* overflow-y: auto; */
+}
+th,
+td {
+  border: 1px solid black;
+  padding: 5px 10px;
+  opacity: 1;
+}

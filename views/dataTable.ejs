@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/dataTable.css" />
+
+    <script
+      src="https://kit.fontawesome.com/8ff5f3e8e1.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="inner-container">
+        <!-- <div class="input-details">
+          <h3>Add Your Docs.</h3>
+          <form action="/addCsv" enctype="multipart/form-data" method="post">
+            <label for="name">Docs Name: </label>
+            <input
+              type="text"
+              name="name"
+              placeholder="name of your list..."
+              required
+            />
+            <br />
+            <label for="file">Docs File: </label>
+            <input type="file" name="file" accept=".csv" required />
+            <br />
+            <button type="submit" class="btn">submit</button>
+          </form>
+        </div> -->
+
+        <div class="table-btn">
+          <button>
+            <a href="/">home</a>
+          </button>
+
+          <form action="/search" method="post" class="table-form">
+            <input
+              type="number"
+              id="searchbar"
+              onkeyup=""
+              placeholder="got to page..."
+              required
+            />
+            <span type="submit" class="search-cnt">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </span>
+          </form>
+        </div>
+        <!-- <hr /> -->
+
+        <div class="list-box" style="height: 80vh">
+          <h1><%= name %></h1>
+
+          <div id="list-details">
+            <table style="width: 100%">
+              <tr>
+                <th>SrNo.</th>
+                <%for(key of keyname) { %>
+                <th><%= key %></th>
+                <% } %>
+              </tr>
+
+              <% let i = 1 %> <% for(data of data) { %>
+              <tr>
+                <td><%= i%></td>
+                <% i++ %> <%for(let value of Object.values(data)) { %>
+                <td><%=value %></td>
+                <% } %>
+              </tr>
+              <% } %>
+            </table>
+          </div>
+          <div class="pages">
+            <span>
+              <a href="<%=id%>?page=<%=page-1%>"><button>< back</button></a>
+            </span>
+            <span>
+              <a href="<%=id%>?page=<%=page+1%>"><button>next ></button></a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
