@@ -107,7 +107,7 @@ module.exports.getAllDetails = async (req, res) => {
     // console.log(newData);
 
     if (newData.length == 0) {
-      console.log("in newdata");
+      // console.log("in newdata");
       return res.status(404).render("notFound");
     }
     let keyname = newData[0];

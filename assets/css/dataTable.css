@@ -75,6 +75,15 @@
   /* background-color: rgba(0, 0, 0, 0.422); */
 }
 
+.page-number {
+  font-size: 16px;
+  /* border: 2px solid black; */
+  width: 100%;
+  margin: auto;
+  margin-top: -16px;
+  /* float: right; */
+}
+
 table {
   border: 2px solid black;
   /* background-color: rgba(0, 0, 0, 0.422); */
@@ -86,4 +95,10 @@ td {
   border: 1px solid black;
   padding: 5px 10px;
   opacity: 1;
+}
+
+@media screen and (min-width: 1200px) {
+  .page-number {
+    width: 80%;
+  }
 }

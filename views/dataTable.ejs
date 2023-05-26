@@ -39,12 +39,13 @@
             <a href="/">home</a>
           </button>
 
-          <form action="/search" method="post" class="table-form">
+          <form action="/<%=id%>?page" method="get" class="table-form">
             <input
               type="number"
               id="searchbar"
               onkeyup=""
               placeholder="got to page..."
+              name="page"
               required
             />
             <span type="submit" class="search-cnt">
@@ -53,6 +54,10 @@
           </form>
         </div>
         <!-- <hr /> -->
+
+        <div class="page-number">
+          <small>page-<%= page%></small>
+        </div>
 
         <div class="list-box" style="height: 80vh">
           <h1><%= name %></h1>
@@ -66,7 +71,7 @@
                 <% } %>
               </tr>
 
-              <% let i = 1 %> <% for(data of data) { %>
+              <% let i = 1 * page * 100 - 99; %> <% for(data of data) { %>
               <tr>
                 <td><%= i%></td>
                 <% i++ %> <%for(let value of Object.values(data)) { %>
@@ -78,10 +83,14 @@
           </div>
           <div class="pages">
             <span>
-              <a href="<%=id%>?page=<%=page-1%>"><button>< back</button></a>
+              <a href="<%=id%>?page=<%=Number(page)-1%>"
+                ><button>< back</button></a
+              >
             </span>
             <span>
-              <a href="<%=id%>?page=<%=page+1%>"><button>next ></button></a>
+              <a href="<%=id%>?page=<%=Number(page)+1%>"
+                ><button>next ></button></a
+              >
             </span>
           </div>
         </div>
