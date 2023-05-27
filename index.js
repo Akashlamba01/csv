@@ -4,7 +4,6 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 
 const app = express();
-const hostname = "0.0.0.0";
 const PORT = process.env.PORT || 3003;
 
 app.use(express.urlencoded({ extended: true }));
@@ -21,5 +20,5 @@ app.listen(PORT, (err) => {
   if (err) {
     console.log(err);
   }
-  console.log(`http://${hostname}:${PORT}`);
+  console.log(`surver is running on the port: ${PORT}`);
 });
