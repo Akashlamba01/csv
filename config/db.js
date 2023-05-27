@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
-
+// XY8piF8vNDPwjAFC
 mongoose
-  .connect("mongodb://127.0.0.1:27017/csv-uploader")
+  .connect(
+    "mongodb+srv://rk1759593:XY8piF8vNDPwjAFC@cluster0.tvdlqln.mongodb.net/?retryWrites=true&w=majority"
+  )
   .then(() => {
     console.log("connection connected!");
   })

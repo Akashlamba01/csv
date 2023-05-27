@@ -9,8 +9,6 @@ const unlinkAsync = promisify(fs.unlink);
 module.exports.importCsv = async (req, res) => {
   try {
     let newCSV;
-    // console.log("jkjkjjkjkjk kuch to hooooooooooo");
-    // console.log("fileeeeeeeeee:", req.file.filename);
     csv()
       .fromFile(req.file.path)
       .then(async (data) => {
@@ -23,9 +21,6 @@ module.exports.importCsv = async (req, res) => {
         }
         newCSV.save();
         let keyname = newCSV.csvfiles[0];
-        console.log(Object.keys(keyname));
-
-        // console.log("abhi ka data", newCSV);
 
         await unlinkAsync(req.file.path);
 
@@ -36,12 +31,6 @@ module.exports.importCsv = async (req, res) => {
     return res.status(400).send({ success: false });
   }
 };
-
-// module.exports.getCsv = (req, res) => {
-//   return res.status(200).render("index", {
-//     title: "csv file",
-//   });
-// };
 
 module.exports.getCsv = async (req, res) => {
   try {
@@ -105,14 +94,11 @@ module.exports.getAllDetails = async (req, res) => {
     let endIndex = startIndex + pageSize;
 
     let newData = data.csvfiles.slice(startIndex, endIndex);
-    // console.log(newData);
 
     if (newData.length == 0) {
-      // console.log("in newdata");
       return res.status(404).render("notFound");
     }
     let keyname = newData[0];
-    // console.log(Object.keys(keyname));
 
     keyname = Object.keys(keyname);
 
