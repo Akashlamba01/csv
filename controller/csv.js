@@ -46,7 +46,7 @@ module.exports.importCsv = async (req, res) => {
 module.exports.getCsv = async (req, res) => {
   try {
     const pageNumber = req.query.page || 1; // Get the current page number from the query parameters
-    const pageSize = 10; // Number of items per page
+    const pageSize = 20; // Number of items per page
 
     let data = await CSVModel.find({});
 
@@ -64,6 +64,7 @@ module.exports.getCsv = async (req, res) => {
 
     return res.status(200).render("index", {
       title: "csv file",
+      // page: pageNumber,
       csv_files: newData,
     });
   } catch (error) {

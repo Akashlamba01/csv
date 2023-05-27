@@ -239,6 +239,10 @@ body {
 }
 
 @media screen and (min-width: 1201px) {
+  .page-number {
+    width: 80%;
+    margin: auto;
+  }
   .input-details {
     /* border: 2px solid blue; */
     width: 70%;

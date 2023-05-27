@@ -11,13 +11,13 @@
     <div class="container">
       <div class="inner-container">
         <div class="input-details">
-          <h3>Add Your Docs.</h3>
+          <h3>Add Your CSV docs.</h3>
           <form action="/addCsv" enctype="multipart/form-data" method="post">
             <label for="name">Docs Name: </label>
             <input
               type="text"
               name="name"
-              placeholder="name of your list..."
+              placeholder="Enter csv file name"
               required
             />
             <br />
@@ -33,22 +33,23 @@
             <input
               type="search"
               id="searchbar"
-              onkeyup=""
-              placeholder="Enter your file name"
+              onkeyup="search_files()"
+              placeholder="search your file here..."
               required
             />
-            <button type="submit" class="btn">search</button>
+            <!-- <button type="submit" class="btn">search</button> -->
           </form>
         </div>
         <!-- <hr /> -->
+
         <div class="list-box">
-          <h1>List</h1>
+          <h1>CSV List</h1>
           <!-- <hr /> -->
           <div id="list-details">
-            <ol>
+            <ol id="myOl">
               <% for(data of csv_files) {%>
               <li>
-                <a href="<%=data.id%>" class="data"><%= data.name %></a>
+                <a href="<%=data.id%>"><%= data.name %></a>
               </li>
               <% } %>
             </ol>
