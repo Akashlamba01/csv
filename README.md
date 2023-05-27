@@ -31,6 +31,3 @@ To set up the project on your local system, follow the instructions below.
 3. Use the web interface to upload a CSV file.
 4. The server will parse the CSV file and store the data in the MongoDB database.
 
-## Push Code
-
-1. push code on github
