@@ -32,6 +32,25 @@ module.exports.importCsv = async (req, res) => {
   }
 };
 
+module.exports.deleteCsv = async (req, res) => {
+  try {
+    let data = await CSVModel.findById(req.params.id);
+
+    if (!data) {
+      return res.status(400).json({
+        message: "not data available!",
+      });
+    }
+
+    data.deleteOne();
+
+    return res.status(201).redirect("/");
+  } catch (error) {
+    console.log(error);
+    return res.status(400).send({ success: false });
+  }
+};
+
 module.exports.getCsv = async (req, res) => {
   try {
     const pageNumber = req.query.page || 1; // Get the current page number from the query parameters

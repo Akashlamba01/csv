@@ -57,6 +57,23 @@
 
         <div class="page-number">
           <small>page-<%= page%></small>
+          <small
+            style="
+              float: right;
+              color: blue;
+              cursor: pointer;
+              text-decoration: underline;
+            "
+          >
+            <form
+              id="delete-form"
+              method="post"
+              action="/deleteCsv/<%=id%>"
+            ></form>
+            <a onclick="document.getElementById('delete-form').submit()">
+              delete
+            </a>
+          </small>
         </div>
 
         <div class="list-box" style="height: 80vh">
@@ -84,7 +101,7 @@
           <div class="pages">
             <span>
               <a href="<%=id%>?page=<%=Number(page)-1%>"
-                ><button>< back</button></a
+                ><button>< prev</button></a
               >
             </span>
             <span>

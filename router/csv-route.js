@@ -38,7 +38,7 @@ const upload = multer({
 });
 
 router.post("/addCsv", upload.single("file"), csvControler.importCsv);
-
+router.post("/deleteCsv/:id", csvControler.deleteCsv);
 router.get("/", csvControler.getCsv);
 router.get("/:id/?page", csvControler.getBySearch);
 router.get("/:id", csvControler.getAllDetails);
