@@ -84,14 +84,19 @@
   /* float: right; */
 }
 
+#list-details {
+  padding: 0 10px;
+}
+
 table {
   /* margin: 0; */
   border: 2px solid black;
   /* background-color: rgba(0, 0, 0, 0.422); */
   /* margin: 1rem; */
-  width: 95%;
+  /* width: 95%; */
   padding: 0;
-  margin: 1rem;
+  margin: 1rem auto;
+  width: 100%;
 
   /* overflow-y: auto; */
 }

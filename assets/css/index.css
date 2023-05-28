@@ -122,7 +122,7 @@ body {
 
 .list-box h1 {
   font-size: 1.5rem;
-  height: 7%;
+  height: 30px;
   padding-top: 10px;
   /* padding-bottom: 5px; */
   background-color: rgba(0, 0, 0, 0.422);
@@ -223,6 +223,10 @@ body {
   /* data list box/////////////////////////////////// */
   .list-box {
     height: 350px;
+  }
+
+  .list-box h1 {
+    height: 36px;
   }
 }
 
