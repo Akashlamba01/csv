@@ -1,3 +1,4 @@
+// search function
 function search_files() {
   var input, filter, ol, li, a, i, txtValue;
   input = document.getElementById("searchbar");
